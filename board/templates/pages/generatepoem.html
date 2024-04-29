@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Generate a poem{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <p>Click <a href="{{ url_for('pages.poem') }}">here</a> to generate a poem!</p>
+{% endblock content %}
