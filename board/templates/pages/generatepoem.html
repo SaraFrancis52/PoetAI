@@ -5,5 +5,11 @@
 {% endblock header %}
 
 {% block content %}
-  <p>Click <button><a href="/poem?subject=genshin+impact">here</a></button> to generate a poem!</p>
+  <form method="get" action="/poem">
+    <label for="subject">Your subject:</label>
+    <input type="text" name="subject" id="subject" required>
+    <br>
+    <br>
+    <input type="submit" value="Generate a poem">
+  </form>
 {% endblock content %}
