@@ -21,3 +21,12 @@ def ai_response(message) :
     temperature=0.7,
   )
   return completion.choices[0].message.content
+
+def parse_data(data) :
+  parsed = []
+  while data.find("\n") != -1 :
+    index = data.find("\n")
+    parsed.append({"text" : data[:index]})
+    data = data[index+1:]
+  parsed.append({"text": data})
+  return parsed

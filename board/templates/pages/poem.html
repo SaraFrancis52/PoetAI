@@ -5,5 +5,7 @@
 {% endblock header %}
 
 {% block content %}
-  <p>{{aiResponse}}</p>
+  {% for line in aiResponse %}
+    <p>{{line.text}}</p>
+  {% endfor %}
 {% endblock content %}
