@@ -1,3 +1,4 @@
+/*
 * {
     box-sizing: border-box;
   }
@@ -17,20 +18,12 @@
   a:hover {
     color: #0056b3;
   }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin: 0 5px;
-  }
+  */
   
   main {
-    width: 80%;
-    margin: 0 auto;
+    /* width: 80%;
+    margin: 0 auto; */
+    text-align: center;
   }
 
   .loader {
@@ -46,3 +39,23 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  #wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+  }
+
+  /* FONTS */
+  .cutive-mono-regular {
+    font-family: "Cutive Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .satisfy-regular {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
