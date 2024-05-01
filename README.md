@@ -9,3 +9,5 @@ Flask tutorial: https://realpython.com/flask-project/
 Beautiful Soup info: https://stackoverflow.com/questions/17126686/extracting-data-from-html-with-python
 
 Jinja templates (not used): https://realpython.com/primer-on-jinja-templating/
+
+Loading screen: https://stackoverflow.com/questions/72338204/flask-show-loading-page-while-another-time-consuming-function-is-running
