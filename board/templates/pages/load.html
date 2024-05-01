@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block javascript %}
+    <script>
+        function navigate() {
+            window.location.href = 'poem';  // Redirects user to the /poem route when 'getResponse' is finished
+        }
+        fetch("getResponse?subject={{topic}}").then(navigate); // Performing 'getResponse' (query AI) and then calls navigate() function, declared above
+    </script>
+{% endblock javascript %}
+{% block header %}
+  <h2>{% block title %}Loading{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<body>
+    <div class="loader"></div>
+</body>
+{% endblock content %}
