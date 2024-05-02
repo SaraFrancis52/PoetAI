@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h2>{% block title %}Generate a poem{% endblock title %}</h2>
+  <h2 class="subheading">{% block title %}Generate a poem{% endblock title %}</h2>
 {% endblock header %}
 
 {% block content %}
   <form method="get" action="/load">
-    <label for="subject">Your subject:</label>
-    <input type="text" name="subject" id="subject" required>
+    <div class="form-group">
+      <label for="subject">Your Subject:</label>
+      <input type="text" name="subject" class="form-control" id="subject" aria-describedby="subjectInfo" placeholder="Enter subject" required>
+      <small id="subjectInfo" class="form-text text-muted">What would you like the AI to write about?</small>
+    </div>
     <br>
-    <br>
-    <input type="submit" value="Generate a poem">
+    <button type="submit" class="btn btn-primary">Generate a poem</button>
   </form>
 {% endblock content %}

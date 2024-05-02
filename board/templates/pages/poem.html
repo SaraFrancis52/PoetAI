@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h2>{% block title %}Poem by The Bloke{% endblock title %}</h2>
+  <h2 class="subheading">{% block title %}Poem by The Bloke{% endblock title %}</h2>
 {% endblock header %}
 
 {% block content %}
+<div class="poem">
   {% for line in aiResponse %}
     {% if line.text == '' %}
       <br>
@@ -12,4 +13,6 @@
       <p>{{line.text}}</p>
     {% endif %}
   {% endfor %}
+</div>
+
 {% endblock content %}
