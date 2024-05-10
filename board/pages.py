@@ -51,6 +51,8 @@ def getResponse():
 def poem():
     return render_template("pages/poem.html", aiResponse=data)
 
-@bp.route("/savedpoems")
-def savedpoems():
-    return render_template("pages/savedpoems.html")
+@bp.route("/savedpoems/<pid>")
+def savedpoems(pid):
+    print("You'd like id " + pid)
+    dbData=data
+    return render_template('pages/savedpoems.html', pid=pid)

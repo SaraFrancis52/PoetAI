@@ -6,6 +6,6 @@
 
 {% block content %}
   <p>This application uses AI to generate a poem based on a subject specified by the user. To specify a subject and request a poem navigate to the <a href="{{ url_for('pages.generatepoem') }}">Generate a poem</a> page.</p>
-  <p>(Coming soon) The user can also rate and save the poem, which adds it to the database, so that it can be viewed on the <a href="{{ url_for('pages.savedpoems') }}">Saved poems</a> page</p>
+  <p>(Coming soon) The user can also rate and save the poem, which adds it to the database, so that it can be viewed on the <a href="{{ url_for('pages.savedpoems', pid=1) }}"></a>Saved poems</a> page</p>
   <p>To learn more about this project visit the <a href="{{ url_for('pages.about') }}">About page</a>.</p>
 {% endblock content %}
