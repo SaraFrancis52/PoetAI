@@ -1,3 +1,14 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+  $(function() {
+    $('a#save').on('click', function(e) {
+      e.preventDefault()
+      $.getJSON('/saving_poem_background?rating='+ document.getElementById('rating').value, function(data) {});
+      return false;
+    });
+  });
+</script>
+
 {% extends 'base.html' %}
 
 {% block header %}
@@ -14,5 +25,10 @@
     {% endif %}
   {% endfor %}
 </div>
+<form method="get" action="/saving_poem_background">
+  <label for="rating">How would you rate this poem?</label>
+  <input type="number" name="rating" class="form-control" id="rating" aria-describedby="ratingInfo" required>
+  <a href=# id=save><button type="submit" class="btn btn-primary">Save Poem</button></a>
+</form>
 
 {% endblock content %}
