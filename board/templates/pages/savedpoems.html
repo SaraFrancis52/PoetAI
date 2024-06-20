@@ -6,8 +6,9 @@
 
 {% block content %}
   <p>Here is where then best poems will be saved and displayed :)</p>
-  <h1>Poem about {{ pid }}!</h1>
-  <div>Rating: {{rating}}</div>
+  <h1>Poem {{ pid }}</h1>
+  <h3>{{title}} by the Bloke</h3>
+  <h3>Rating: {{rating}}</h3>
   <div class="poem">
     {% for line in poem %}
       {% if line.text == '' %}

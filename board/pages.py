@@ -3,6 +3,7 @@ from ai import *
 import sqlite3
 
 # Fixme: no global variable?
+curSubject = ""
 data = []
 
 bp = Blueprint("pages", __name__)
@@ -45,25 +46,28 @@ def getResponse():
     parsedData = parse_data(theResponse[0])
     print(parsedData)
     global data 
+    global curSubject
+    curSubject = subject
     data = parsedData
     return "done"
     
 @bp.route("/poem")
 def poem():
-    return render_template("pages/poem.html", aiResponse=data)
+    return render_template("pages/poem.html", aiResponse=data, title=curSubject)
 
 @bp.route("/savedpoems/<pid>")
 def savedpoems(pid):
     print("You'd like id " + pid)
     conn = sqlite3.connect('poetAI.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT rating, poem from poems where id = " + pid)
+    cursor.execute("SELECT rating, title, poem from poems where id = " + pid)
     output = cursor.fetchall() 
     conn.close()
     for row in output: 
         print(row) 
         rating = row[0]
-        text = row[1]
+        title = row[1]
+        text = row[2]
     print("The rating is " + str(rating))
     parsedData = parse_data(text)
     print(parsedData)
@@ -71,13 +75,15 @@ def savedpoems(pid):
     pidB = int(pid)
     pidC = int(pid)+1
     pidD = int(pid)+2
-    return render_template('pages/savedpoems.html', pid=pid, pidA=pidA, pidB=pidB, pidC=pidC, pidD=pidD, rating=rating, poem=parsedData)
+    return render_template('pages/savedpoems.html', pid=pid, pidA=pidA, pidB=pidB, pidC=pidC, pidD=pidD, rating=rating, poem=parsedData, title=title)
 
 @bp.route('/saving_poem_background')
 def saving_poem_background():
     rating = request.args.get('rating')
     print(rating)
     global data
+    global curSubject
+    title = curSubject
     toclean = data
     print(toclean)
     toclean = clean_data(toclean)
@@ -85,7 +91,7 @@ def saving_poem_background():
 
     conn = sqlite3.connect('poetAI.db')
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO poems (poem, rating) VALUES ('"+ toclean +"', " + rating + ")")
+    cursor.execute("INSERT INTO poems (poem, title, rating) VALUES ('"+ toclean +"', '" + title + "', " + rating + ")")
     conn.commit()
     conn.close()
     return ("nothing")

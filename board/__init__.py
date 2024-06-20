@@ -13,7 +13,8 @@ def create_app():
     app.register_blueprint(pages.bp)
     conn = sqlite3.connect('poetAI.db')
     cursor = conn.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS poems (id INTEGER PRIMARY KEY, user TEXT, poem TEXT, rating INTEGER)")
+    # cursor.execute("DROP TABLE poems")
+    cursor.execute("CREATE TABLE IF NOT EXISTS poems (id INTEGER PRIMARY KEY, user TEXT, poem TEXT, title TEXT, rating INTEGER)")
     # cursor.execute("SELECT * from poems")
     # output = cursor.fetchall() 
     # for row in output: 
