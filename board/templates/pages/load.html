@@ -4,7 +4,7 @@
         function navigate() {
             window.location.href = 'poem';  // Redirects user to the /poem route when 'getResponse' is finished
         }
-        fetch("getResponse?subject={{topic}}").then(navigate); // Performing 'getResponse' (query AI) and then calls navigate() function, declared above
+        fetch("getResponse?subject={{topic}}&style={{type}}&rhyming={{rhyme}}").then(navigate); // Performing 'getResponse' (query AI) and then calls navigate() function, declared above
     </script>
 {% endblock javascript %}
 {% block header %}

@@ -10,6 +10,20 @@
       <label for="subject">Your Subject:</label>
       <input type="text" name="subject" class="form-control" id="subject" aria-describedby="subjectInfo" placeholder="Enter subject" required>
       <small id="subjectInfo" class="form-text text-muted">What would you like the AI to write about?</small>
+      <br>
+      <br>
+      <label for="style">What style?</label><br>
+      <input type="radio" class="form-check-input" name="style" id="free" value="Free" checked>
+      <label for="free" class="form-check-label">Free Verse</label><br>
+      <input type="radio" class="form-check-input" name="style" id="limerick" value="limerick">
+      <label for="limerick" class="form-check-label">Limerick</label><br>
+      <input type="radio" class="form-check-input" name="style" id="Haiku" value="Haiku">
+      <label for="Haiku" class="form-check-label">Haiku</label><br>
+      <br>
+      <div class="form-check form-switch">
+        <input class="form-check-input" name="rhyming" type="checkbox" id="rhymingSwitch" checked value="yes">
+        <label class="form-check-label" for="rhymingSwitch">Rhyming?</label>
+      </div>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Generate a poem</button>

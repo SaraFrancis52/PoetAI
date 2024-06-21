@@ -23,22 +23,39 @@ def generatepoem():
 @bp.route("/load")
 def load():
     subject = request.args.get('subject')
+    style = request.args.get('style')
+    if(request.args.get('rhyming')):
+        rhyming = "yes"
+    else:
+        rhyming = "no"
     print("(Loading) You requested " + subject)
-    return render_template("pages/load.html", topic=subject)
+    print("(Loading) You requested " + style)
+    return render_template("pages/load.html", topic=subject, type=style, rhyme=rhyming)
 
-@bp.route("/getResponse")
+@bp.route("/getResponse", methods=['GET'])
 def getResponse():
     subject = request.args.get('subject')
-    print("You requested: " + subject)
+    style = request.args.get('style')
+    rhyming = request.args.get('rhyming')
+
     myData = []
-    data1 = {
+
+    if(rhyming == 'yes'):
+        data1 = {
         "role": "system",
         "content": "Always answer in rhymes."
-    }
-    myData.append(data1)
+        }
+        myData.append(data1)
+    
+    query = ""
+    if(style == 'Free'):
+        query = "Write me a poem about " + subject
+    else:
+        query = "Write me a "+ style +" about " + subject 
+
     data2 = {
         "role": "user",
-        "content": "Write me a poem about " + subject
+        "content": query
     }
     myData.append(data2)
     theResponse = ai_response(myData),
