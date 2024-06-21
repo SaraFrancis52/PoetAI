@@ -96,6 +96,9 @@ def saving_poem_background():
     conn.close()
     return ("nothing")
 
+@bp.app_errorhandler(404)
+def not_found(e):
+    return render_template("pages/404.html"),404
 
 # Turn dictionary into a string for saving, and remove ' to avoid SQL parsing errors
 # FIXME how to save data with single quotes?

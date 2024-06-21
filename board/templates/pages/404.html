@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2 class="subheading">{% block title %}404: Not Found{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+    <p>We can't seem to find the page you're looking for. Please check the URL for any typos.</p>
+  <img src="../../static/cat-shrugging.gif" />
+{% endblock content %}
