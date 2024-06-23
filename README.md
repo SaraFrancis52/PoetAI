@@ -1,13 +1,4 @@
 # PoetAI
-Personal project using LM Studio, Python, Flask and Jinja
+Personal project using LM Studio, Python, Flask (Python web framework) and Jinja templating
 
-Helpful links:
-LLM Video: https://www.youtube.com/watch?v=yBI1nPep72Q
-
-Flask tutorial: https://realpython.com/flask-project/
-
-Beautiful Soup info: https://stackoverflow.com/questions/17126686/extracting-data-from-html-with-python
-
-Jinja templates (not used): https://realpython.com/primer-on-jinja-templating/
-
-Loading screen: https://stackoverflow.com/questions/72338204/flask-show-loading-page-while-another-time-consuming-function-is-running
+This project uses a locally running AI model in LM Studio to generate a poem based on the user's criteria. The user can also rate and save the poem.
