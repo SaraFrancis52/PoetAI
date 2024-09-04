@@ -92,3 +92,7 @@
   .poem{
     text-align: center;
   }
+
+  .disable-click{
+    pointer-events: none;
+  }

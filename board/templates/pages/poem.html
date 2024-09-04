@@ -31,7 +31,8 @@
 </div>
 <form method="get" action="/saving_poem_background">
   <label for="rating">How would you rate this poem?</label>
-  <input type="number" name="rating" class="form-control" id="rating" aria-describedby="ratingInfo" required>
+  <input type="number" min="1" max="10" name="rating" class="form-control" id="rating" aria-describedby="ratingInfo" required>
+  <br>
   <a href=# id=save><button type="submit" class="btn btn-primary">Save Poem</button></a>
 </form>
 

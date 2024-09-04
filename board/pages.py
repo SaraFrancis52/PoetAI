@@ -67,11 +67,15 @@ def getResponse():
     curSubject = subject
     data = parsedData
     return "done"
-    
+
+
+# Display the poem the AI created
 @bp.route("/poem")
 def poem():
     return render_template("pages/poem.html", aiResponse=data, title=curSubject)
 
+
+# Display the requested poem by it's id
 @bp.route("/savedpoems/<pid>")
 def savedpoems(pid):
     print("You'd like id " + pid)
@@ -94,10 +98,14 @@ def savedpoems(pid):
     pidD = int(pid)+2
     return render_template('pages/savedpoems.html', pid=pid, pidA=pidA, pidB=pidB, pidC=pidC, pidD=pidD, rating=rating, poem=parsedData, title=title)
 
+# Save the current poem when the user clicks 'Save poem'
 @bp.route('/saving_poem_background')
 def saving_poem_background():
     rating = request.args.get('rating')
     print(rating)
+    if(rating == "" or rating < 1 or rating > 10):
+        rating = "0" # FIXME: 0 is currently a placeholder for unknown/invalid
+
     global data
     global curSubject
     title = curSubject
