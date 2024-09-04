@@ -1,9 +1,13 @@
+
+<!-- Script to save the poem, display the success message and disable the button (so it's only saved once) -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type=text/javascript>
   $(function() {
     $('a#save').on('click', function(e) {
       e.preventDefault()
       $.getJSON('/saving_poem_background?rating='+ document.getElementById('rating').value, function(data) {});
+      $("#successMSG").toast("show");
+      document.getElementById("save").classList.add("disable-click");
       return false;
     });
   });
@@ -31,9 +35,11 @@
   <a href=# id=save><button type="submit" class="btn btn-primary">Save Poem</button></a>
 </form>
 
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+
+<!-- Bootstrap toast to appear when poem is saved successfully -->
+<div class="toast" id="successMSG" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
-    <img src="..." class="rounded mr-2" alt="...">
+    <!-- <img src="..." class="rounded mr-2" alt="..."> -->
     <strong class="mr-auto">Bootstrap</strong>
     <small class="text-muted">Just now</small>
     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -41,7 +47,7 @@
     </button>
   </div>
   <div class="toast-body">
-    Hello, world! This is a toast message.
+    Success!
   </div>
 </div>
 
