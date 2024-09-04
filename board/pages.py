@@ -117,13 +117,12 @@ def saving_poem_background():
 def not_found(e):
     return render_template("pages/404.html"),404
 
-# Turn dictionary into a string for saving, and remove ' to avoid SQL parsing errors
-# FIXME how to save data with single quotes?
+# Turn dictionary into a string for saving, and use escape character for ' to avoid SQL parsing errors
 def clean_data(data) :
     cleaned = ''
-    cleaned.replace("'", "")
+    cleaned.replace("'", "''")
     for row in data:
         cleaned += row["text"]
         cleaned += '\n'
-    cleaned = cleaned.replace("'", "")
+    cleaned = cleaned.replace("'", "''")
     return cleaned
